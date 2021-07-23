@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
-    background-color: #FFFCF8;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 `;
 export const LoadingIcon = styled.ActivityIndicator`
-    margin-top: 50px;
+    align-items: center;
+    margin-top: 40px;
 `;
