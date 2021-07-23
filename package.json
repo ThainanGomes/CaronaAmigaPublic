@@ -30,7 +30,8 @@
     "react-native-swiper": "^1.6.0",
     "react-native-web": "~0.13.12",
     "styled-components": "^5.3.0",
-    "undefined": "react-navigation/stacks"
+    "undefined": "react-navigation/stacks",
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

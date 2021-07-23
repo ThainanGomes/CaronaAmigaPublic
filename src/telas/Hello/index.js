@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Container } from './style';
+import { Container, LoadingIcon } from './style';
 
+import CirculosSvg from '../../assets/Icons/Circulos/circulos.svg';
 
 export default () => {
     return (
         <Container>
-            <Text>Tela Hello</Text>
+            <CirculosSvg />
+            <LoadingIcon size="large" color="#565656"/>
         </Container>
     )
 }
