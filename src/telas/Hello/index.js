@@ -1,25 +1,34 @@
 import React from 'react';
 import { Container, LoadingIcon } from './style';
-import { View, StyleSheet, Text } from 'react-native'
-
+import { View, StyleSheet, Text, ImageBackground } from 'react-native';
+import { Font } from 'expo';
 import CirculosSvg from '../../assets/Icons/Circulos/circulos.svg';
-import CurvasSvg from '../../assets/Icons/arteHello/obraprima.svg';
+//import CurvasSvgBackGround from '../../assets/Icons/arteHello/obraprima.svg';
+
+const imagemFundo = '../../assets/Icons/arteHello/obraprimapng.png'
 
 export default () => {
     return (
         <Container>
             <View style={styles.parteSuperiorTexto}>
                 <View style={styles.parteSuperiorCirculos}>  
-                    <CirculosSvg />
+                    <Text style={styles.texto}>
+                        CARONA AMIGA
+                    </Text>
+                    <CirculosSvg /> 
                 </View>
-                <Text style={styles.texto}>
-                    Carona Amiga App
-                </Text>
             </View>
+
             <View style={styles.corpoTela}>
-                <LoadingIcon size="large" color="#565656"/>
+                <ImageBackground source={require(imagemFundo)} resizeMode="cover" style={styles.image}>
+                    <View style={styles.conteudoCorpo}>
+                        <Text style={styles.textoConteudoCorpo}> 
+                        Aqui você pode avaliar o condutor e o passageiro. Se não foi agradável para  você, a viagem, para o outro também não será!
+                        </Text>
+                        <LoadingIcon size="large"/>
+                    </View>
+                </ImageBackground>
             </View>
-            <CurvasSvg style={styles.arteBackGround}/>    
         </Container>
         
     )
@@ -36,14 +45,24 @@ const styles = StyleSheet.create({
     texto:{
         marginLeft: 25,
         fontSize: 30,   
+        marginTop: 80,
         color: '#565656'
     },
 
     /** Corpo da tela*/
     corpoTela:{
-        margin: 0
+        flex: 1,
+        width: '100%',
+        marginTop: 20
+    }, 
+    image: {
+        flex: 1,
+        justifyContent: "center" 
     },
-    arteBackGround:{
-       flex: 1
+    textoConteudoCorpo:{
+        color: '#fff',
+        padding: 20,
+        marginBottom: 20,
+        fontSize: 20
     }
 });
