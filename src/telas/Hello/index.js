@@ -18,7 +18,6 @@ export default () => {
             if(token){
                 //validar token
             }else{
-                console.log('chegou aq')
                 navigation.navigate('Inicial')
             }
         }
@@ -28,10 +27,10 @@ export default () => {
     return (
         <Container>
             <View style={styles.parteSuperiorTexto}>
-                <Text style={styles.texto}>
-                        CARONA AMIGA
-                </Text>
                 <View style={styles.parteSuperiorCirculos}>  
+                    <Text style={styles.texto}>
+                        CARONA AMIGA
+                    </Text>
                     <CirculosSvg /> 
                 </View>
             </View>
@@ -60,9 +59,9 @@ const styles = StyleSheet.create({
         width: "100%"
     },
     texto:{
-        marginLeft: 25,
+        marginRight: 15,
         fontSize: 30,   
-        marginTop: 80,
+        marginTop: 70,
         color: '#565656'
     },
 
