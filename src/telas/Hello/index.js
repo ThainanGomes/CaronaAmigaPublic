@@ -17,11 +17,9 @@ export default () => {
             const token = await AsyncStorage.getItem('token');
             if(token){
                 //validar token
-
-
             }else{
                 console.log('chegou aq')
-                navigation.navigate('Login')
+                navigation.navigate('Inicial')
             }
         }
         checkToken();
@@ -30,10 +28,10 @@ export default () => {
     return (
         <Container>
             <View style={styles.parteSuperiorTexto}>
-                <View style={styles.parteSuperiorCirculos}>  
-                    <Text style={styles.texto}>
+                <Text style={styles.texto}>
                         CARONA AMIGA
-                    </Text>
+                </Text>
+                <View style={styles.parteSuperiorCirculos}>  
                     <CirculosSvg /> 
                 </View>
             </View>
