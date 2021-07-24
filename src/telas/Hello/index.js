@@ -1,13 +1,32 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Container, LoadingIcon } from './style';
 import { View, StyleSheet, Text, ImageBackground } from 'react-native';
-import { Font } from 'expo';
 import CirculosSvg from '../../assets/Icons/Circulos/circulos.svg';
-//import CurvasSvgBackGround from '../../assets/Icons/arteHello/obraprima.svg';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
 
+//import CurvasSvgBackGround from '../../assets/Icons/arteHello/obraprima.svg';
 const imagemFundo = '../../assets/Icons/arteHello/obraprimapng.png'
 
 export default () => {
+
+    const navigation = useNavigation();
+      
+    useEffect(() =>{
+        const checkToken = async () =>{
+            const token = await AsyncStorage.getItem('token');
+            if(token){
+                //validar token
+
+
+            }else{
+                console.log('chegou aq')
+                navigation.navigate('Login')
+            }
+        }
+        checkToken();
+    }, []);
+
     return (
         <Container>
             <View style={styles.parteSuperiorTexto}>
@@ -25,7 +44,7 @@ export default () => {
                         <Text style={styles.textoConteudoCorpo}> 
                         Aqui você pode avaliar o condutor e o passageiro. Se não foi agradável para  você, a viagem, para o outro também não será!
                         </Text>
-                        <LoadingIcon size="large"/>
+                        <LoadingIcon size="large" color="#fff"/>
                     </View>
                 </ImageBackground>
             </View>
