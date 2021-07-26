@@ -23,7 +23,6 @@ export default () => {
         }
         checkToken();
     }, []);
-
     return (
         <Container>
             <View style={styles.parteSuperiorTexto}>
