@@ -1,21 +1,28 @@
 import React from 'react'
-import { View, StyleSheet, SafeAreaView, Text, } from 'react-native'
 import styled from 'styled-components'
-
+import { Text } from 'react-native';
 const InputLogin = styled.View`
-    width: 200;
-    height: 60;
-    margin-top: 80px;
+    width: 260px;
+    height: 60px;
     
     flex-direction: row;
     align-items: center;
     padding-left: 15px;
-    border-radius: 20;
+    border-radius: 20px;
     border-color: #EB9831;
-    border-width: 1.2;
-
+    border-width: 1.2px;
+    margin-bottom: 15px;
 `;
-export default ({IconSvg}) => {   
+const CampoInput = styled.TextInput`
+    flex:1;
+    justify-content: center;
+    align-items:center;
+    font-size: 12px;
+    color: #FFBF6F;   
+    margin-left: 10px;
+`;
+
+export default ({IconSvg, propsTextoLogin}) => {   
     return (
         <InputLogin>
             <IconSvg 
@@ -23,7 +30,12 @@ export default ({IconSvg}) => {
                 height = "22"
                 fill = "#EB9831"
             />
-            <Input />
+            <CampoInput>
+                <Text>
+                    {propsTextoLogin}
+                </Text>
+
+            </CampoInput>
         </InputLogin>
     )
 }

@@ -1,28 +1,39 @@
 import React from 'react'
+import styled from 'styled-components'
 import { TouchableOpacity, Text, StyleSheet } from 'react-native'
-
-export default function BotaoInformacao(props) {
-    return(
-        <TouchableOpacity 
-            style={styles.botaoInformacao}
-            onPress={()=>{}}
-        >
-            <Text style={styles.textoBotaoInformacao}>{props.textoBotao}</Text>
-        </TouchableOpacity>
-    );
-}
-
-
-const styles = StyleSheet.create({
-    botaoInformacao:{
+/**
         height: 100,
         width: 100,
         backgroundColor: '#FFBF6F',
         borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
+  */
+const BotaoInformacao = styled.TouchableOpacity`
+    height:100px;
+    width: 100px;
+    background-color: #FFBF6F;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+`;
 
+export default({textoBotao, IconSvg}) => {
+    return(
+        <BotaoInformacao style={styles.botaoInformacao}>
+            <IconSvg 
+                width = "50"
+                height = "50"
+                fill = "#fff"
+            />
+            <Text style={styles.textoBotaoInformacao}>{textoBotao}</Text>
+        </BotaoInformacao>
+    );
+}
+
+const styles = StyleSheet.create({
+    botaoInformacao:{
         shadowOffset: { height: 1, width: 1 },
         shadowColor: '#95a5a6',
         shadowOpacity: 1,
@@ -30,7 +41,8 @@ const styles = StyleSheet.create({
         elevation: 10,
     },
     textoBotaoInformacao:{
-        fontSize: 9.5,  
+        marginTop: 10,  
+        fontSize: 10,  
         color: '#fff',
         textAlign: 'center'
     }

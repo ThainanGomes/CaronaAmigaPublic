@@ -1,17 +1,21 @@
 import React from 'react'
 import { Container } from './style'
-import { Text, StyleSheet, View, SafeAreaView } from 'react-native'
+import { Text, StyleSheet, View, SafeAreaView, Touchable, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 //components
 import SuperiorLogin from '../../components/superior/SuperiorLogin'
+import InputLogin from '../../components/input/InputLogin'
+import BotaoConfirmaAzul from '../../components/botoes/BotaoConfirmaAzul'
 
 //Assets
 import UserIcon from '../../assets/Icons/IconesGerais/person_black_24dp.svg'
 import LockIcon from '../../assets/Icons/IconesGerais/lock.svg'
-import InputLogin from '../../components/input/InputLogin'
-
+import BackIcon from '../../assets/Icons/IconesGerais/back.svg'
 
 export default () => {
+    const navigation = useNavigation()
+
     return (
         <Container>
             <SuperiorLogin
@@ -19,9 +23,45 @@ export default () => {
                 propsTextoMenor="Faça o seu Login"
             />
             <View style={styles.conteudo}>
-                <InputLogin IconSvg={UserIcon} />
-            </View>
+                <TouchableOpacity
+                    style={styles.ConteudoRow}
+                    onPress={() => navigation.navigate('Inicial')}>
+                    <BackIcon width="24" height="24" fill="#247BA7" />
+                </TouchableOpacity>
 
+                <View style={styles.ConteudoColumn}>
+                    <InputLogin
+                        IconSvg={UserIcon}
+                        propsTextoLogin="Digite seu e-mail"
+                    />
+                    <InputLogin
+                        IconSvg={LockIcon}
+                        propsTextoLogin="Digite sua senha"
+                    />
+                    <BotaoConfirmaAzul
+                        propsTextoBotao="Confirma"
+                        onpress={() => { console.log('apertou o botao') }}
+                    />
+                    <View style={styles.textos}>
+                        <TouchableOpacity>
+                            <Text style={styles.styleTextos}>
+                                Esqueci a senha
+                            </Text>
+                        </TouchableOpacity>
+
+                        <View style={styles.textosCadastro}>
+                            <Text style={styles.styleTextos}>
+                                Ainda não possui Conta?
+                            </Text>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('CadastreSe')}
+                            >
+                                <Text style={styles.styleTextosBold}>Cadastre-se</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </View>
         </Container>
     )
 }
@@ -29,12 +69,41 @@ const styles = StyleSheet.create({
     conteudo: {
         flex: 1,
         width: '100%',
-        padding: 30,
+        backgroundColor: '#FFFCF8',
+        borderTopEndRadius: 50,
+        borderTopStartRadius: 50,
+    },
+    textosCadastro: {
+        flexDirection: 'row',
+        marginTop: 5
+    },
+    textos: {
+        width: '100%',
+        marginTop: 25,
+        marginRight: 50,
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+    },
+    styleTextos: {
+        color: '#EB9831',
+
+    },
+    styleTextosBold: {
+        color: '#EB9831',
+        fontWeight: 'bold',
+        marginLeft: 5
+    },
+    //scroll ajustado
+    ConteudoRow: {
+        flexDirection: 'row',
+        paddingLeft: 30,
+        paddingTop: 20
+    },
+    ConteudoColumn:{
+        flex: 1,
+        paddingTop: 30,
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#FFFCF8',
-        borderTopEndRadius: 50,
-        borderTopStartRadius: 50
-    } 
+    }
 })
