@@ -1,52 +1,43 @@
-import React from 'react'
-import { Container, IconSvg, ScrollLogin } from './style'
-import { Text, StyleSheet, View, SafeAreaView, TouchableOpacity, TextInput } from 'react-native'
-import IconPreco from '../../assets/Icons/IconesGerais/sacoDinheiro.svg'
-import SuperiorLogin from '../../components/superior/SuperiorLogin'
+import React from 'react';
+import { Container } from './style';
+import { StyleSheet, View } from 'react-native';
 
+//Components
+import SuperiorLogin from '../../components/superior/SuperiorLogin';
+import BotaoInformacao from '../../components/botoes/BotaoInformacao';
+import BotaoLogin from '../../components/botoes/BotaoLogin';
+import BotaoCadastreSe from '../../components/botoes/BotaoCadastreSe';
+//assets
+import IconPreco from '../../assets/Icons/IconesGerais/sacoDinheiro.svg';
+import IconCarro from '../../assets/Icons/IconesGerais/carro (regras p viajar).svg'
 export default () => {
     return (
         <Container>
-            <SuperiorLogin 
+            <SuperiorLogin
                 propsTextoTitulo="CARONA AMIGA" 
                 propsTextoMenor="Faça Login ou Cadastre-se" 
             />
-
-
             <View style={styles.conteudo}>
                 <View style={styles.botoesInformação}>
-                    
-                    <TouchableOpacity 
-                        style={styles.botaoInformacao}
-                        onPress={()=>{}}    
-                    >
-                        <Text style={styles.textoBotaoInformacao}>Média de Preços</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity 
-                        style={styles.botaoInformacao}
-                        onPress={()=>{}}
-                    >
-                        <Text style={styles.textoBotaoInformacao}>Regras para Viajar</Text>
-                    </TouchableOpacity>
-
-                </View>
-
-                <View style={styles.scrollLogin}>
-                    <TouchableOpacity 
+                    <BotaoInformacao 
+                        textoBotao="Média de Precos"
                         IconSvg={IconPreco}
-                        style={styles.botaoInicialLogin}
-                    >
-                        <Text style={styles.textoBotaoInicialLogin}> Login </Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity 
-                        style={styles.botaoInicialCadastreSe}>
-                        <Text style={styles.textoBotaoInicialCadastreSe}> Cadastre-se </Text>
-                    </TouchableOpacity>
-
+                        //Não consegui colocar Icones svg em TouchableOpacity
+                    />
+                    <BotaoInformacao 
+                        textoBotao="Regras para Viajar"
+                        IconSvg={IconCarro}
+                    />
+                </View>
+                <View style={styles.scrollLogin}>
+                    <BotaoLogin 
+                        propsTextoBotao="Login"
+                    />
+                    <BotaoCadastreSe 
+                        propsTextoBotao="Cadastre-se"
+                    />
                 </View>
             </View>
-
         </Container>
     )
 }
@@ -65,23 +56,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
-    botaoInformacao:{
-        height: 100,
-        width: 100,
-        backgroundColor: '#FFBF6F',
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 10,
-
-        shadowOffset: { height: 1, width: 1 },
-        shadowColor: '#95a5a6',
-        shadowOpacity: 1,
-        shadowRadius: 4,
-        elevation: 10,
-    },
     textoBotaoInformacao:{
-        fontSize: 9.5, 
+        fontSize: 9.5,  
         color: '#fff',
         textAlign: 'center'
     },
@@ -90,44 +66,5 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center'
-
-    },
-    botaoInicialLogin:{
-        width: 200,
-        height: 60,
-        backgroundColor: '#EB9831',
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        shadowOffset: { height: 1, width: 1 },
-        shadowColor: '#95a5a6',
-        shadowOpacity: 1,
-        shadowRadius: 4,
-        elevation: 10,
-    },
-    textoBotaoInicialLogin:{
-        color: '#fff',
-        fontSize: 14
-    },
-    botaoInicialCadastreSe:{
-        marginTop: 12,
-        width: 200,
-        height: 60,
-        backgroundColor: '#fff',
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        shadowOffset: { height: 1, width: 1 },
-        shadowColor: '#95a5a6',
-        shadowOpacity: 1,
-        shadowRadius: 4,
-        elevation: 10,
-    },
-    textoBotaoInicialCadastreSe:{
-        color: '#EB9831',
-        fontSize: 14
     }
-
 });

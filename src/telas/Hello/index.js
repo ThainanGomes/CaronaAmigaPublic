@@ -18,7 +18,7 @@ export default () => {
             if(token){
                 //validar token
             }else{
-                navigation.navigate('Inicial')
+                navigation.navigate('Login')
             }
         }
         checkToken();
