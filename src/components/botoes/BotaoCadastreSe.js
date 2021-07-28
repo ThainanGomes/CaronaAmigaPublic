@@ -15,7 +15,6 @@ export default (props) => {
         </TouchableOpacity>
     );
 }
-
 const styles = StyleSheet.create({
     botaoInicial:{
         marginTop: 12,

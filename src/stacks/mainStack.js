@@ -5,12 +5,13 @@ import Hello from '../telas/Hello';
 import Inicial from '../telas/Inicial';
 import Login from '../telas/Login';
 import CadastreSe from '../telas/CadastreSe';
+import CadastreSeManualmente from '../telas/CadastreSeManualmente';
 
 const Stack = createStackNavigator();
 
 export default () => (
     <Stack.Navigator
-        initialRouteName="Hello" 
+        initialRouteName="CadastreSeManualmente" 
         screenOptions={{
             headerShown: false
         }}
@@ -19,5 +20,6 @@ export default () => (
         <Stack.Screen name="Inicial" component={Inicial} />
         <Stack.Screen name="Login" component={Login} />        
         <Stack.Screen name="CadastreSe" component={CadastreSe} />
+        <Stack.Screen name="CadastreSeManualmente" component={CadastreSeManualmente} />
     </Stack.Navigator>
 );

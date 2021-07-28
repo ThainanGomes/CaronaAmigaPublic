@@ -10,6 +10,7 @@ import BotaoCadastreSe from '../../components/botoes/BotaoCadastreSe';
 //assets
 import IconPreco from '../../assets/Icons/IconesGerais/sacoDinheiro.svg';
 import IconCarro from '../../assets/Icons/IconesGerais/carro (regras p viajar).svg'
+
 export default () => {
     return (
         <Container>
@@ -22,7 +23,6 @@ export default () => {
                     <BotaoInformacao 
                         textoBotao="Média de Precos"
                         IconSvg={IconPreco}
-                        //Não consegui colocar Icones svg em TouchableOpacity
                     />
                     <BotaoInformacao 
                         textoBotao="Regras para Viajar"

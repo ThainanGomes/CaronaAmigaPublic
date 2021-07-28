@@ -7,11 +7,10 @@ import { useNavigation } from '@react-navigation/native';
 import SuperiorLogin from '../../components/superior/SuperiorLogin'
 import InputLogin from '../../components/input/InputLogin'
 import BotaoConfirmaAzul from '../../components/botoes/BotaoConfirmaAzul'
-
+import ButtomBack from '../../components/botoes/ButtomBack';
 //Assets
 import UserIcon from '../../assets/Icons/IconesGerais/person_black_24dp.svg'
 import LockIcon from '../../assets/Icons/IconesGerais/lock.svg'
-import BackIcon from '../../assets/Icons/IconesGerais/back.svg'
 
 export default () => {
     const navigation = useNavigation()
@@ -23,12 +22,7 @@ export default () => {
                 propsTextoMenor="Faça o seu Login"
             />
             <View style={styles.conteudo}>
-                <TouchableOpacity
-                    style={styles.ConteudoRow}
-                    onPress={() => navigation.navigate('Inicial')}>
-                    <BackIcon width="24" height="24" fill="#247BA7" />
-                </TouchableOpacity>
-
+                <ButtomBack />
                 <View style={styles.ConteudoColumn}>
                     <InputLogin
                         IconSvg={UserIcon}
@@ -94,11 +88,6 @@ const styles = StyleSheet.create({
         marginLeft: 5
     },
     //scroll ajustado
-    ConteudoRow: {
-        flexDirection: 'row',
-        paddingLeft: 30,
-        paddingTop: 20
-    },
     ConteudoColumn:{
         flex: 1,
         paddingTop: 30,

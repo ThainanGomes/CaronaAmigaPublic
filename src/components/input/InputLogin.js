@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text } from 'react-native';
+
 const InputLogin = styled.View`
     width: 260px;
     height: 60px;
-    
+
     flex-direction: row;
     align-items: center;
     padding-left: 15px;
