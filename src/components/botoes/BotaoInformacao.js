@@ -1,14 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TouchableOpacity, Text, StyleSheet } from 'react-native'
-/**
-        height: 100,
-        width: 100,
-        backgroundColor: '#FFBF6F',
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-  */
+
 const BotaoInformacao = styled.TouchableOpacity`
     height:100px;
     width: 100px;
