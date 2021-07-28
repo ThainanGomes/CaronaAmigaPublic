@@ -7,6 +7,7 @@ import SuperiorLogin from '../../components/superior/SuperiorLogin'
 import { Container } from './style';
 import CadastrarApi from '../../components/botoes/CadastrarApi'
 import BotaoConfirmaAzul from '../../components/botoes/BotaoConfirmaAzul';
+import ButtomBack from '../../components/botoes/ButtomBack';
 
 //Assets
 import FacebookICon from '../../assets/Icons/redesSociais/facebook_black_24dp.svg'
@@ -24,12 +25,7 @@ export default () => {
                 propsTextoMenor="Faça o seu cadastro"
             />
             <View style={styles.conteudo}>
-                
-                <TouchableOpacity 
-                    style={styles.ConteudoRow} 
-                    onPress={()=> navigation.navigate('Inicial')}>
-                    <BackIcon width="24" height="24" fill="#247BA7" />
-                </TouchableOpacity>
+                <ButtomBack />
 
                 <View style={styles.ConteudoColumn}> 
                     <CadastrarApi IconSvg={FacebookICon}
@@ -43,6 +39,7 @@ export default () => {
 
                     <BotaoConfirmaAzul
                         propsTextoBotao="Cadastrar-se"
+                        onPress={()=> navigation.navigate('Inicial')}
                     />
                 </View>
             </View>

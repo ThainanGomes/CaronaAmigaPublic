@@ -1,9 +1,11 @@
 import React from 'react'
 import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
-export default (props) => {
+export default (props, {funcao}) => {
     return (
-        <TouchableOpacity style={styles.botaoAzul}>
+        <TouchableOpacity style={styles.botaoAzul}
+            onPress={()=>  {funcao} }
+        >
             <Text style={styles.textoBotaoAzul}>
                 {props.propsTextoBotao}
             </Text>
@@ -20,6 +22,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#247BA7',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: 40,
     },
     textoBotaoAzul:{
         color: '#fff'

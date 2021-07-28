@@ -11,7 +11,7 @@ const CampoInput = styled.TextInput`
     margin-left: 10px;
 `;
 export const InputCadastro = styled.View`
-    width: 280px;
+    width: 250px;
     height: 50px;
     flex-direction: row;
     align-items: center;

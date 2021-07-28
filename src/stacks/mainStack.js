@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export default () => (
     <Stack.Navigator
-        initialRouteName="CadastreSeManualmente" 
+        initialRouteName="Hello" 
         screenOptions={{
             headerShown: false
         }}
