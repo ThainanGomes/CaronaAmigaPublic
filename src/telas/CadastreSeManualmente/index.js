@@ -12,6 +12,7 @@ import PersonIcon from '../../assets/Icons/IconesGerais/person_black_24dp.svg'
 import CidadeICon from '../../assets/Icons/IconesGerais/location_on_black_24dp.svg'
 import GpsIcon from '../../assets/Icons/IconesGerais/my_location_black_24dp.svg'
 import EmailIcon from '../../assets/Icons/redesSociais/emailnocolor.svg'
+
 export default() => {
     return(
         <Container>
