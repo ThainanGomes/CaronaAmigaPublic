@@ -8,6 +8,7 @@ export default () => {
     <UsercontextProvider>
       <NavigationContainer>
         <MainStack/>
+        
       </NavigationContainer>
     </UsercontextProvider>
   );
