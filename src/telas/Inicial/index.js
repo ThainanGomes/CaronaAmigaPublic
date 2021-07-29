@@ -1,17 +1,22 @@
 import React from 'react';
 import { Container } from './style';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 //Components
 import SuperiorLogin from '../../components/superior/SuperiorLogin';
 import BotaoInformacao from '../../components/botoes/BotaoInformacao';
 import BotaoLogin from '../../components/botoes/BotaoLogin';
 import BotaoCadastreSe from '../../components/botoes/BotaoCadastreSe';
+
 //assets
 import IconPreco from '../../assets/Icons/IconesGerais/sacoDinheiro.svg';
 import IconCarro from '../../assets/Icons/IconesGerais/carro (regras p viajar).svg'
 
 export default () => {
+
+    const navigation = useNavigation();
     return (
         <Container>
             <SuperiorLogin
@@ -20,9 +25,11 @@ export default () => {
             />
             <View style={styles.conteudo}>
                 <View style={styles.botoesInformação}>
+                    
                     <BotaoInformacao 
                         textoBotao="Média de Precos"
                         IconSvg={IconPreco}
+                        funcaoBotao={() => navigation.navigate('Login')}
                     />
                     <BotaoInformacao 
                         textoBotao="Regras para Viajar"

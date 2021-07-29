@@ -6,6 +6,7 @@ import Inicial from '../telas/Inicial';
 import Login from '../telas/Login';
 import CadastreSe from '../telas/CadastreSe';
 import CadastreSeManualmente from '../telas/CadastreSeManualmente';
+import MediaPrecos from '../telas/MediaPrecos';
 
 const Stack = createStackNavigator();
 
@@ -21,5 +22,7 @@ export default () => (
         <Stack.Screen name="Login" component={Login} />        
         <Stack.Screen name="CadastreSe" component={CadastreSe} />
         <Stack.Screen name="CadastreSeManualmente" component={CadastreSeManualmente} />
+        <Stack.Screen name="MediaPrecos" component={MediaPrecos} />
+
     </Stack.Navigator>
 );

@@ -15,8 +15,8 @@ import LockIcon from '../../assets/Icons/IconesGerais/lock.svg'
 export default () => {
     const navigation = useNavigation();
 
-    const [campoEmail, setCampoEmail] = useState('logintex')
-    const [campoSenha, setCampoSenha] = useState('senhathainan')
+    const [campoEmail, setCampoEmail] = useState('')
+    const [campoSenha, setCampoSenha] = useState('')
 
     return (
         <Container>

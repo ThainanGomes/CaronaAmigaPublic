@@ -12,9 +12,11 @@ const BotaoInformacao = styled.TouchableOpacity`
     padding: 10px;
 `;
 
-export default({textoBotao, IconSvg}) => {
+export default({textoBotao, IconSvg, funcaoBotao}) => {
     return(
-        <BotaoInformacao style={styles.botaoInformacao}>
+        <BotaoInformacao style={styles.botaoInformacao}
+            onPress={funcaoBotao}
+        >
             <IconSvg 
                 width = "50"
                 height = "50"
