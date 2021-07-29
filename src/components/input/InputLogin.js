@@ -19,11 +19,10 @@ const CampoInput = styled.TextInput`
     justify-content: center;
     align-items:center;
     font-size: 12px;
-    color: #FFBF6F;   
+    color: #565656;   
     margin-left: 10px;
 `;
-
-export default ({IconSvg, propsTextoLogin}) => {   
+export default ({IconSvg, placeholder, value, onChangeText, senha}) => {   
     return (
         <InputLogin>
             <IconSvg 
@@ -31,12 +30,13 @@ export default ({IconSvg, propsTextoLogin}) => {
                 height = "22"
                 fill = "#EB9831"
             />
-            <CampoInput>
-                <Text>
-                    {propsTextoLogin}
-                </Text>
-
-            </CampoInput>
+            <CampoInput 
+                placeholder={placeholder}
+                placeholderTextColor="#EB9831" 
+                value={value}
+                onChangeText={onChangeText}
+                secureTextEntry={senha}
+                />
         </InputLogin>
     )
 }

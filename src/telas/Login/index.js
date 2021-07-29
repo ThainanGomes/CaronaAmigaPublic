@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Container } from './style'
-import { Text, StyleSheet, View, SafeAreaView, Touchable, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 //components
@@ -13,7 +13,10 @@ import UserIcon from '../../assets/Icons/IconesGerais/person_black_24dp.svg'
 import LockIcon from '../../assets/Icons/IconesGerais/lock.svg'
 
 export default () => {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+
+    const [campoEmail, setCampoEmail] = useState('logintex')
+    const [campoSenha, setCampoSenha] = useState('senhathainan')
 
     return (
         <Container>
@@ -23,38 +26,43 @@ export default () => {
             />
             <View style={styles.conteudo}>
                 <ButtomBack />
-                <View style={styles.ConteudoColumn}>
-                    <InputLogin
-                        IconSvg={UserIcon}
-                        propsTextoLogin="Digite seu e-mail"
-                    />
-                    <InputLogin
-                        IconSvg={LockIcon}
-                        propsTextoLogin="Digite sua senha"
-                    />
-                    <BotaoConfirmaAzul
-                        propsTextoBotao="Confirma"
-                        onpress={() => { console.log('apertou o botao') }}
-                    />
-                    <View style={styles.textos}>
-                        <TouchableOpacity>
-                            <Text style={styles.styleTextos}>
-                                Esqueci a senha
-                            </Text>
-                        </TouchableOpacity>
-
-                        <View style={styles.textosCadastro}>
-                            <Text style={styles.styleTextos}>
-                                Ainda não possui Conta?
-                            </Text>
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate('CadastreSe')}
-                            >
-                                <Text style={styles.styleTextosBold}>Cadastre-se</Text>
+                    <View style={styles.ConteudoColumn}>
+                        <InputLogin
+                            IconSvg={UserIcon}
+                            placeholder="Digite seu e-mail"
+                            value={campoEmail}
+                            onChangeText={texto => setCampoEmail(texto)}
+                        />
+                        <InputLogin
+                            IconSvg={LockIcon}
+                            placeholder="Digite sua senha"
+                            value={campoSenha}
+                            onChangeText={texto => setCampoSenha(texto)}
+                            senha={true}
+                        />
+                        <BotaoConfirmaAzul
+                            propsTextoBotao="Confirma"
+                            onpress={() => { console.log('apertou o botao') }}
+                        />
+                        <View style={styles.textos}>
+                            <TouchableOpacity>
+                                <Text style={styles.styleTextos}>
+                                    Esqueci a senha
+                                </Text>
                             </TouchableOpacity>
+
+                            <View style={styles.textosCadastro}>
+                                <Text style={styles.styleTextos}>
+                                    Ainda não possui Conta?
+                                </Text>
+                                <TouchableOpacity
+                                    onPress={() => navigation.navigate('CadastreSe')}
+                                >
+                                    <Text style={styles.styleTextosBold}>Cadastre-se</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     </View>
-                </View>
             </View>
         </Container>
     )

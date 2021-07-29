@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from './style'
-import { ScrollView, View, StyleSheet } from 'react-native'
+import { ScrollView, View, StyleSheet, KeyboardAvoidingView, Platform } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 //Components
@@ -27,41 +27,45 @@ export default() => {
             />
             <View style={styles.conteudo}>
             
-                <ButtomBack />  
-                <ScrollView>
-                    <View style={styles.conteudoColumn}>
-                        <InputCadastro
-                            TextoSecao="Nome Completo:"
-                            IconSvg={PersonIcon}
-                            propsTextoInput= "Digite seu nome aqui"
-                        /> 
-                        <InputCadastro
-                            TextoSecao="Cidade:"
-                            IconSvg={CidadeICon}
-                            propsTextoInput= "Digite a cidade aqui"
-                        />
-                        <InputCadastro
-                            TextoSecao="Endereço:"
-                            IconSvg={GpsIcon}
-                            propsTextoInput= "Digite a Rua aqui"
-                        />
-                        <InputCadastro
-                            TextoSecao="Número da Residência:"
-                            IconSvg={GpsIcon}
-                            propsTextoInput= "Digite o número aqui"
-                        />
-                        <InputCadastro
-                            TextoSecao="E-mail:"
-                            IconSvg={EmailIcon}
-                            propsTextoInput= "E-mail de recuperação"
-                        />
-                        <BotaoConfirma 
-                            propsTextoBotao="Cadastrar-se"
-                            //funcao={navigation.navigate('CadastreSeManualmente')}
-                            //como fazer os botos componentizados funcionarem? 
-                        />
-                        </View>      
-                </ScrollView>
+                <ButtomBack /> 
+                <KeyboardAvoidingView
+                    behavior={Platform.OS == "ios" ? "padding" : "height"}
+                >
+                    <ScrollView>
+                        <View style={styles.conteudoColumn}>
+                            <InputCadastro
+                                TextoSecao="Nome Completo:"
+                                IconSvg={PersonIcon}
+                                propsTextoInput= "Digite seu nome aqui"
+                            /> 
+                            <InputCadastro
+                                TextoSecao="Cidade:"
+                                IconSvg={CidadeICon}
+                                propsTextoInput= "Digite a cidade aqui"
+                            />
+                            <InputCadastro
+                                TextoSecao="Endereço:"
+                                IconSvg={GpsIcon}
+                                propsTextoInput= "Digite a Rua aqui"
+                            />
+                            <InputCadastro
+                                TextoSecao="Número da Residência:"
+                                IconSvg={GpsIcon}
+                                propsTextoInput= "Digite o número aqui"
+                            />
+                            <InputCadastro
+                                TextoSecao="E-mail:"
+                                IconSvg={EmailIcon}
+                                propsTextoInput= "E-mail de recuperação"
+                            />
+                            <BotaoConfirma 
+                                propsTextoBotao="Cadastrar-se"
+                                //funcao={navigation.navigate('CadastreSeManualmente')}
+                                //como fazer os botos componentizados funcionarem? 
+                            />
+                            </View>      
+                    </ScrollView>
+                </KeyboardAvoidingView>    
             </View>
         </Container>
     )
@@ -75,6 +79,7 @@ const styles = StyleSheet.create({
         borderTopStartRadius: 50,
     },
     conteudoColumn:{
+        paddingBottom: 25,
         paddingTop: 15,
         marginLeft: 10,
         flexDirection: 'column',
